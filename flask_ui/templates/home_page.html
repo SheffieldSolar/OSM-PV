@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% set activepage = 'Home' %}
+{% block content %}
+    <h1>Sheffield Solar OSM Data Validation Tool</h1>
+    <form action="{{url_for('validate_osm_groups', group_id=1)}}" method="post" id="osmGroupsFileUploadForm" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="osmGroupsFile">OSM Groups File</label>
+            <input type="file" class="form-control-file" name="osmGroupsFile" id="osmGroupsFile">
+        </div>
+        <div class="form-group">
+            <label for="index">START GROUP</label>
+            <input type="number" id="groupID" name="group_id" min="0" value="0">
+            <small id="indexHelp" class="form-text text-muted">Use this to skip to a particular group.</small>
+        </div>
+        <button id="submitButton" type="submit" class="btn btn-primary">Load groupings</button>
+    </form>
+{% endblock content %}
+
+{% block scripts %}
+    {{super()}}
+    <script type="text/javascript">
+            $("#submitButton").click(function() {
+                var group_id = $("#groupID").val();
+                $("#osmGroupsFileUploadForm").attr("action", "/validate_osm_groups/"+group_id);
+            });
+        });
+    </script>
+{% endblock scripts %}

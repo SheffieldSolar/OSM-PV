@@ -1,0 +1,57 @@
+{% block metas %}
+    <!-- These 3 meta tags MUST come first -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- These 3 meta tags MUST come first -->
+{% endblock metas %}
+
+{% block styles %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="/static/css/style.css" rel="stylesheet" type="text/css">
+{% endblock styles %}
+
+{% include 'loading_overlay.html' %}
+
+{% block title %}
+    OSM data validator - Sheffield Solar &trade;
+{% endblock title %}
+
+{% block body %}
+    {% block heading %}
+        {% block navbar %}
+            <div id="navbar-div" class="clearfix">
+                <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{url_for('home_page')}}">Home</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        {% endblock navbar %}
+    {% endblock heading %}
+    <div id="main-div">
+        <div id="main-content">
+            <div class="main">
+                {% block content %}
+                {% endblock content %}
+            </div>
+        </div>
+    </div>
+
+    {% block footer %}
+        <hr class="no-margins"/>
+    {% endblock footer %}   
+     
+    {% block scripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        <script>
+            $(document).ready(function() {
+                document.getElementById("loading-overlay").style.display = "none";
+            });
+        </script>
+    {% endblock scripts %}
+{% endblock body %}
