@@ -26,9 +26,12 @@ def home_page():
 
 @APP.route("/validate_osm_groups/<int:group_id>", methods=["GET", "POST"])
 def validate_osm_groups(group_id):
-    groups_cache_file = os.path.join(ROOT_PATH, "cache", "osmGroupsFile.p")
+    groups_cache_dir = os.path.join(ROOT_PATH, "cache")
+    groups_cache_file = os.path.join(groups_cache_dir, "osmGroupsFile.p")
     if request.method == "POST" and "osmGroupsFile" in request.files:
         osm_groups = pd.read_csv(request.files["osmGroupsFile"].stream)
+        if not os.path.isdir(groups_cache_dir):
+            os.mkdir(groups_cache_dir)
         with open(groups_cache_file, "wb") as fid:
             pickle.dump(osm_groups, fid)
     else:
