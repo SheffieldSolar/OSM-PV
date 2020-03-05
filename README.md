@@ -1,5 +1,5 @@
 # OSM-PV
-Tools to validate the PV systems matched in OSM and cross-reference with other data sources.
+Tools to validate the PV systems mapped in OSM and cross-reference with other data sources.
 
 ## What is this repository for? ##
 
