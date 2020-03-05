@@ -17,7 +17,7 @@ Generate validation data for the 'Enabling worldwide solar PV nowcasting via mac
 >> docker run -it --rm -p 5000:5000 -v <local-results-dir>:/osm_pv/flask_ui/results sheffieldsolar/osm_pv
 ```
 
-Not that you should replace `<local-results-dir>` with the full path to the destination directory you wish to use.
+Note that you should replace `<local-results-dir>` with the full path to the destination directory you wish to use.
 e.g.
 
 ```
