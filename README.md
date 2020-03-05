@@ -24,7 +24,7 @@ e.g.
 >> docker run -it --rm -p 5000:5000 -v C:\Users\EJones820\Desktop\Sheffield_Solar\osm_pv\flask_ui\results:/osm_pv/flask_ui/results sheffieldsolar/osm_pv
 ```
 
-Visit 127.0.0.1:5000 in your browser!
+Now, just visit http://127.0.0.1:5000 in your browser! (preferably Chrome)
 
 Note that in the above examples, the following flags are used with the `docker run` command:
 * `-it` flags tell docker we want to run the container interactively
