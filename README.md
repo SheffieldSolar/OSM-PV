@@ -14,14 +14,14 @@ Generate validation data for the 'Enabling worldwide solar PV nowcasting via mac
 ## Running the Flask App to validate OSM data ##
 
 ```
->> docker run -it --rm -p 5000:5000 -v <local-results-dir>:/osm_pv/flask_ui/results osm_pv
+>> docker run -it --rm -p 5000:5000 -v <local-results-dir>:/osm_pv/flask_ui/results sheffieldsolar/osm_pv
 ```
 
 Not that you should replace `<local-results-dir>` with the full path to the destination directory you wish to use.
 e.g.
 
 ```
->> docker run -it --rm -p 5000:5000 -v C:\Users\EJones820\Desktop\Sheffield_Solar\osm_pv\flask_ui\results:/osm_pv/flask_ui/results osm_pv
+>> docker run -it --rm -p 5000:5000 -v C:\Users\EJones820\Desktop\Sheffield_Solar\osm_pv\flask_ui\results:/osm_pv/flask_ui/results sheffieldsolar/osm_pv
 ```
 
 Note that in the above examples, the following flags are used with the `docker run` command:
