@@ -86,3 +86,9 @@ Note that in the above examples, the following flags are used with the `docker r
 
 ## How do I update? ##
 Run `docker pull sheffieldsolar/osm_pv`.
+
+## To Do ##
+1. Load Bing Maps API key from file
+2. Add text box to record notes on rejected groupings
+3. Fix bug whereby groupings validator doesn't return to home after last group
+4. ...
