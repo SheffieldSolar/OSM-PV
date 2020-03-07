@@ -131,3 +131,4 @@ dmypy.json
 # Project specific
 cache/
 flask_ui/cache/
+flask_ui/bing_api_key.txt
