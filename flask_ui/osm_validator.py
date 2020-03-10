@@ -43,6 +43,7 @@ def validate_osm_groups(group_id):
     if "is_valid" in request.form:
         is_valid = request.form["is_valid"] == "yes"
         validation_notes = request.form["validation_notes"]
+        validation_notes.replace(",", ";")
         flush_results(group_id, is_valid, validation_notes)
         return redirect(url_for("validate_osm_groups", group_id=group_id+1))
     group = osm_groups.loc[osm_groups.id == group_id]
