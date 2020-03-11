@@ -25,8 +25,7 @@ FLAG_CODES = {
     1: ("Domestic neighbours", "Multiple domestic neighbours should be independent systems"),
     2: ("Good group within bad group", "A good group within the bad group"),
     3: ("Missing system", "A missing system with the good group"),
-    4: ("Commercial neighbours", "Multiple commercial neighbours should be independent systems"),
-    5: ("Industrial neighbours", "Multiple industrial neighbours should be independent systems")
+    4: ("Commercial neighbours", "Multiple commercial neighbours should be independent systems")
 }
 
 @APP.route("/", methods=["GET", "POST"])
