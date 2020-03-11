@@ -9,7 +9,7 @@
         </div>
         <div class="form-group">
             <label for="index">START GROUP</label>
-            <input type="number" id="groupID" name="group_id" min="0" value="0">
+            <input type="number" id="groupID" name="group_id" min="1" value="1">
             <small id="indexHelp" class="form-text text-muted">Use this to skip to a particular group.</small>
         </div>
         <button id="submitButton" type="submit" class="btn btn-primary">Load groupings</button>
@@ -19,10 +19,9 @@
 {% block scripts %}
     {{super()}}
     <script type="text/javascript">
-            $("#submitButton").click(function() {
-                var group_id = $("#groupID").val();
-                $("#osmGroupsFileUploadForm").attr("action", "/validate_osm_groups/"+group_id);
-            });
+        $("#submitButton").click(function() {
+            var group_id = $("#groupID").val();
+            $("#osmGroupsFileUploadForm").attr("action", "/validate_osm_groups/"+group_id);
         });
     </script>
 {% endblock scripts %}
