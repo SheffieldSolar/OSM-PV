@@ -88,7 +88,8 @@ Note that in the above examples, the following flags are used with the `docker r
 Run `docker pull sheffieldsolar/osm_pv`.
 
 ## To Do ##
-1. Load Bing Maps API key from file
-2. Add text box to record notes on rejected groupings
-3. Fix bug whereby groupings validator doesn't return to home after last group
-4. ...
+1. <s>Load Bing Maps API key from file</s>
+2. <s>Add text box to record notes on rejected groupings</s>
+3. <s>Fix bug whereby groupings validator doesn't return to home after last group</s>
+4. <s>Add standarised notes through check boxes</s>
+5. <s>Fixed bug whereby couldn't jump to specific group from the home page</s>
