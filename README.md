@@ -63,6 +63,59 @@ id,objects,lats,lons
 
 This output file is needed for the Grouping Validation Flask App...
 
+## Running the _compare_repd_groupings.py_ script to compare grouped repd systems ##
+
+```
+python .\compare_repd_groups.py -h
+```
+
+This will print the CLI help for the Python script:
+```
+usage: compare_repd_groups.py [-h] --ss-file </path/to/file> --turing-file
+                              </path/to/file> -o </path/to/file>
+
+This is a command line interface (CLI) for the compare_repd_groups.py module
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --ss-file </path/to/file>
+                        Specify the path to the ss CSV file.
+  --turing-file </path/to/file>
+                        Specify the path to the turing CSV file.
+  -o </path/to/file>, --out-file </path/to/file>
+                        Specify the path to the output file.
+
+Jamie Taylor & Ethan Jones, 2020-04-15
+```
+
+Note that you need to specify two input files (of grouped repd systems) and an output file, e.g.
+
+```
+python .\compare_repd_groups.py --ss-file "C:\Users\EJones820\Desktop\Sheffield_Solar\pv_deployment_tracker\sitelist_compiler\cross_reference\cross_reference.csv" --turing-file "C:\Users\EJones820\Google Drive\Sheffield_Solar\Turing_OCF_OSM\repd_groupings\fixed_repd_2K_distance_matches.csv" -o "compared_groupings_results.csv"
+```
+The output file will be a CSV with columns:
+
+* group_id - group_id from the Turing file.
+* ssid - corresponding ssid from the Sheffield file.
+* failed_grouping - Numbered flag from the set {0...4} depending on whether the group is correct or incorrect (incorrect groupings are categorised into 3 different sub-categories; too greedy, not greedy enough and same number of system, but not a match).
+
+e.g.
+
+```
+group_id,ssid,failed_grouping
+3,912,2
+4,604,3
+4,680,3
+5,565,3
+6,726,3
+7,899,3
+8,878,3
+9,903,0
+10,857,3
+11,443,3
+11,564,3
+...
+```
 ## Running the Flask App to validate OSM data ##
 
 ```
