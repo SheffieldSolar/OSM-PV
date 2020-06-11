@@ -67,4 +67,3 @@ def parse_options():
 if __name__ == "__main__":
     OPTIONS = parse_options()
     main(OPTIONS.input_file, OPTIONS.output_file)
-
