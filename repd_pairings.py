@@ -9,7 +9,7 @@ import os
 import argparse
 import pandas as pd
 
-def munge__turing_groups(filename):
+def munge_turing_groups(filename):
     """
     Load a file of turing REPD 1:1 pairings and restructure as groups.
     """
@@ -43,7 +43,7 @@ def main(input_file, output_file):
     """
     Fix 1:1 pairings in REPD CSV file.
     """
-    groups = munge_groups(input_file)
+    groups = munge_turing_groups(input_file)
     groups.to_csv(output_file, index=False)
 
 def parse_options():
