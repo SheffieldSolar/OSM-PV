@@ -15,6 +15,7 @@ def get_matches(filename):
     """
     pairings = pd.read_csv(filename)
     pairings = pairings.drop(columns=['SOLAR_MEDIA_REF', 'RO_Generator_ID', 'SS_SUB_ID'])
+    pairings = pairings.loc[pairings.REPD_REF_ID.notnull()].reset_index(drop=True)
     matches = []
     for i in pairings.index:
         if i >= 1:
@@ -66,4 +67,3 @@ def parse_options():
 if __name__ == "__main__":
     OPTIONS = parse_options()
     main(OPTIONS.input_file, OPTIONS.output_file)
-
