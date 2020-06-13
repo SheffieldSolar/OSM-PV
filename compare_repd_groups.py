@@ -8,6 +8,7 @@ Compare REPD groupings from SS dataset with Turing REPD groupings
 import sys
 import os
 import argparse
+import time
 
 import pandas as pd
 import numpy as np
@@ -16,7 +17,7 @@ from ss_repd_pairings import main as ss_repd_pairings
 
 def main(ss_file, turing_file, out_file):
     """
-    Concatenate Turing REPD groupings and SS REPD groupings then compare against one another. 
+    Concatenate Turing REPD groupings and SS REPD groupings then compare against one another.
     Resulting dataframe is saved to a csv file.
     """
     ss_groupings = ss_repd_pairings(ss_file)
@@ -87,12 +88,14 @@ def compare_to_ss_dataset(ss_groupings, turing_groupings):
     ss_groupings.columns = ss_groupings.columns.get_level_values(1)
     matches = []
     count = 0
+    start_time = time.time()
     for i, ss_row in ss_groupings.filter(like="ss_").iterrows():
         for j, t_row in turing_groupings.filter(like="turing_").iterrows():
             if any([ssc in t_row.values for ssc in ss_row.values]):
                 matches.append([i] + ss_groupings.loc[i].to_list() + turing_groupings.loc[j].to_list())
         count += 1
         print_progress(count, len(ss_groupings.index))
+    print("--- Execution time: %s seconds ---" % round((time.time() - start_time), 2))
     compare_groupings = pd.DataFrame(matches, columns=["ssid"] + ss_groupings.columns.to_list() + turing_groupings.columns.to_list())
     compare_groupings = compare_groupings.assign(failed_grouping=pd.NA)
     for i, row in compare_groupings.iterrows():
