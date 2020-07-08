@@ -2,3 +2,4 @@ flask
 pandas
 numpy
 OSMPythonTools
+git+git://github.com/SheffieldSolar/Geocode/
