@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% set activepage = 'Home' %}
+{% block content %}
+    <h1>Sheffield Solar OSM-REPD validation Tool</h1>
+    <form action="{{url_for('validate_osm_repd_matches', index=0)}}", method="POST", enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="osmWayFile">OSM ways File</label>
+            <input type="file" class="form-control-file" name="osmWayFile" id="osmWayFile" required>
+        </div>
+        <button id="submitButton" type="submit" class="btn btn-primary">Validate</button>
+    </form>
+{% endblock content %}
+
+{% block scripts %}
+    {{super()}}
+    
+{% endblock scripts %}
