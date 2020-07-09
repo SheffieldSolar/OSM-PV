@@ -61,12 +61,14 @@
             {% for turing_repd_id in turing_coords %}
                     var turing_location = new Microsoft.Maps.Location({{turing_coords[turing_repd_id][0]}}, {{turing_coords[turing_repd_id][1]}});
                     var turingPin = new Microsoft.Maps.Pushpin(turing_location, { title: 'Turing',
+                                                                                  subTitle: 'REPD ID: {{turing_repd_id}}',
                                                                                   color: 'blue' });
                     map.entities.push(turingPin);
             {% endfor %}
             {% for soton_repd_id in soton_coords %}
                     var soton_location = new Microsoft.Maps.Location({{soton_coords[soton_repd_id][0]}}, {{soton_coords[soton_repd_id][1]}});
                     var sotonPin = new Microsoft.Maps.Pushpin(soton_location, { title: 'Soton',
+                                                                                subTitle: 'REPD ID: {{soton_repd_id}}',
                                                                                 color: 'red' });
                     map.entities.push(sotonPin);
             {% endfor %}
