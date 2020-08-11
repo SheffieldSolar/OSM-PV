@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% set activepage = 'Home' %}
+{% block content %}
+    <h1>Sheffield Solar OSM-REPD validation Tool</h1>
+    <form action="{{url_for('validate_osm_repd_disagreement_matches', index=0)}}" method="POST" id="osmREPDMatchFileUploadForm" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="osmWayFile">OSM ways File</label>
+            <input type="file" class="form-control-file" name="osmWayFile" id="osmWayFile" required>
+        </div>
+        <div class="form-group">
+            <label for="index">START GROUP</label>
+            <input type="number" id="groupID" name="group_id" min="0" value="0">
+            <small id="indexHelp" class="form-text text-muted">Use this to skip to a particular group.</small>
+        </div>
+        <button id="submitButton" type="submit" class="btn btn-primary">Validate</button>
+    </form>
+{% endblock content %}
+
+{% block scripts %}
+    {{super()}}
+    <script type="text/javascript">
+        $("#submitButton").click(function() {
+            var group_id = $("#groupID").val();
+            $("#osmREPDMatchFileUploadForm").attr("action", "/validate_osm_repd_disagreement_matches/"+group_id);
+        });
+    </script>
+{% endblock scripts %}
