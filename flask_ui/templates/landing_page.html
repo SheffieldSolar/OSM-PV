@@ -8,6 +8,9 @@
     <form method="POST" id="matching_tool" action="{{ url_for('osm_repd_validation_landing_page') }}">
         <button type="submit" class="btn btn-primary">OSM-REPD matches validation tool</button>
     </form>
+    <form method="POST" id="disagreement_matching_tool" action="{{ url_for('osm_repd_disagreement_validation_landing_page') }}">
+        <button type="submit" class="btn btn-primary">OSM-REPD disagreement matches validation tool</button>
+    </form>
 {% endblock content %}
 
 {% block scripts %}
