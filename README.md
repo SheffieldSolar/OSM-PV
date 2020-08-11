@@ -137,6 +137,10 @@ Note that in the above examples, the following flags are used with the `docker r
 * `--p 5000:5000` tells docker to map the host's port 5000 onto the container's port 5000 (i.e. so we can see the Flask server from outside the container)
 * `-v <local-results-dir>:/osm_pv/flask_ui/results` flag is mounting the local directory `<local-results-dir>` onto the container directory `/osm_pv/flask_ui/results` (which is the default location for results files within the container)
 
+* OSM ways validation tool - Used for validating OSM way groupings.
+* OSM-REPD matches validation tool - Used to validate OSM-REPD matches using metadata and Bing maps imagery.
+* OSM-REPD disagreement matches validation tool - Used to validate OSM-REPD matches which are being disputed.
+
 ## How do I update? ##
 Run `docker pull sheffieldsolar/osm_pv`.
 
