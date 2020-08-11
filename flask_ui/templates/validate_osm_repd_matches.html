@@ -7,29 +7,21 @@
         <div>
             <div id="results_table">
                 <br><hr>
-                <h3>Turing matches</h3>
+                <h3>Entries from REPD</h3>
                 {{ tables[0]|safe }}
                 <br>
-                <h3>Soton matches</h3>
+               <h3>Entries from input dataset</h3>
                 {{ tables[1]|safe }}
                 <br>
             </div><hr>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="is_valid" value="turing">
-            <label class="form-check-label" for="inlineRadio1">Turing correct</label>
+            <input class="form-check-input" type="radio" name="is_valid" value="correct">
+            <label class="form-check-label" for="inlineRadio1">Correct</label>
         </div>
         <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="is_valid" value="ambiguous">
-            <label class="form-check-label" for="inlineRadio1">Ambiguous / neither</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="is_valid" value="both">
-            <label class="form-check-label" for="inlineRadio1">Both correct</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="is_valid" value="soton">
-            <label class="form-check-label" for="inlineRadio1">Soton correct</label>
+            <input class="form-check-input" type="radio" name="is_valid" value="incorrect">
+            <label class="form-check-label" for="inlineRadio1">Incorrect</label>
         </div>
         <div>
             {% for flag_id in flag_codes %}
@@ -58,19 +50,12 @@
                 ], { fillColor: "rgba(242, 104, 104, 0.5)", strokeColor: "red", strokeThickness: 2 });
                 map.entities.push(polygon);
             {% endfor %}
-            {% for turing_repd_id in turing_coords %}
-                    var turing_location = new Microsoft.Maps.Location({{turing_coords[turing_repd_id][0]}}, {{turing_coords[turing_repd_id][1]}});
-                    var turingPin = new Microsoft.Maps.Pushpin(turing_location, { title: 'Turing',
-                                                                                  subTitle: 'REPD ID: {{turing_repd_id}}',
+            {% for repd_id in coords %}
+                    var location = new Microsoft.Maps.Location({{coords[repd_id][0]}}, {{coords[repd_id][1]}});
+                    var REPD_Pin = new Microsoft.Maps.Pushpin(location, { title: 'REPD entry location',
+                                                                                  subTitle: 'REPD ID: {{repd_id}}',
                                                                                   color: 'blue' });
-                    map.entities.push(turingPin);
-            {% endfor %}
-            {% for soton_repd_id in soton_coords %}
-                    var soton_location = new Microsoft.Maps.Location({{soton_coords[soton_repd_id][0]}}, {{soton_coords[soton_repd_id][1]}});
-                    var sotonPin = new Microsoft.Maps.Pushpin(soton_location, { title: 'Soton',
-                                                                                subTitle: 'REPD ID: {{soton_repd_id}}',
-                                                                                color: 'red' });
-                    map.entities.push(sotonPin);
+                    map.entities.push(REPD_Pin);
             {% endfor %}
             map.setView({
                 mapTypeId: Microsoft.Maps.MapTypeId.aerial,
